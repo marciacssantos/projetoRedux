@@ -1,22 +1,18 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react'
+import { useSelector } from 'react-redux'
 
-function App() {
-
-  const state = useSelector((state) => state);
-  const dispatch = useDispatch();
-  console.log(state)
-
-  return (
-    
+function App(){
+  const frutas = useSelector((state) => state.frutas)
+  console.log(frutas)
+  return(
     <div>
-      {state}
-      <br />
-      <button onClick ={() => dispatch({type:"ADICIONAR"})}>
-        Adicionar
-      </button>
+      {frutas.map((fruta, index) => {
+        return (
+          <li key = {index}>{fruta.nome}</li>
+        )
+      })}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
