@@ -3,13 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 function App(){
   const [inputFrutas, setInputFrutas] = React.useState("")
-  {
-    reducer: {
-      state
-    }
-  }
-
-
+ 
   const frutas = useSelector((state) => state.reducer.frutas)
   const dispatch = useDispatch();
 

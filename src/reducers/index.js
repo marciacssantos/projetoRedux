@@ -1,11 +1,7 @@
 import {combineReducers} from 'redux'
 
 const initialState = {
-    frutas:[
-    { nome: "Banana"},
-    { nome: "Maçã"},
-    { nome: "Uva"}
-    ]
+    frutas:[]
 }
 
 function reducer(state = initialState, action) {
@@ -16,7 +12,15 @@ function reducer(state = initialState, action) {
     }
 }
 
-const reducers = combineReducers({reducer})
+function tituloReducer(state = 0, action){
+    if(action.type === "ALTERAR"){
+        return state + 1;
+    }else{
+        return state
+    }
+}
+
+const reducers = combineReducers({reducer, tituloReducer})
 
 export default reducers
 
