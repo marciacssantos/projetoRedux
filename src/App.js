@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Form, Input, Button } from 'reactstrap'
 import Menu from './components/menu'
 function App(){
   const [inputFrutas, setInputFrutas] = React.useState("")
@@ -7,10 +8,10 @@ function App(){
 
   const frutas = useSelector((state) => state.reducer.frutas)
   const titulo = useSelector((state) => state.tituloReducer.titulo)  //Como não é uma array não precisa passar o .frutas
-  console.log(titulo)
+  const quantidade = useSelector((state) => state.reducer2.quantidade)
   
   const dispatch = useDispatch();
-
+// Inicio da funcao que adiciona a fruta na pagina
   function adicionarFruta(event){
     event.preventDefault(); //pra página não recarregar
 
@@ -21,6 +22,16 @@ function App(){
     dispatch({type: "ADICIONAR", value: objFruta})
 
   }
+  // Fim
+
+  function adicionarQuantidade(event){
+    event.preventDefault();
+
+    const objQtd = {
+      nome: inputQtd
+    }
+    dispatch({type: "ACRESCENTAR", value: objQtd})
+  }
 
   function alterarTitulo(event){
     setInputTitulo(event.target.value)
@@ -30,26 +41,26 @@ function App(){
   return(
     <div>
       <Menu />
-      <form>
+      <Form>
         <label>Título</label>
-        <input 
-        placeholder="Digite o título" 
+        <Input 
+        placeholder="Informe o titulo" 
         value={inputTitulo}
         onChange = {alterarTitulo}
         />
-      </form>
+      </Form>
       
       <h1>{titulo}</h1>
-      <form onSubmit = {adicionarFruta}>
-        <input 
+      <Form onSubmit = {adicionarFruta}>
+        <Input 
           placeholder="Digite uma fruta..." 
           value={inputFrutas} 
           onChange={(event) => setInputFrutas(event.target.value)}
         />
-        <button>
+        <Button color="primary">
           Enviar
-        </button>
-      </form>
+        </Button>
+      </Form>
       {frutas.map((fruta, index) => {
         return (
           <li key = {index}>{fruta.nome}</li>
