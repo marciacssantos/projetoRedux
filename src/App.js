@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-
+import Menu from './components/menu'
 function App(){
   const [inputFrutas, setInputFrutas] = React.useState("")
   const [inputTitulo, setInputTitulo] = React.useState("")
@@ -29,6 +29,7 @@ function App(){
 
   return(
     <div>
+      <Menu />
       <form>
         <label>Título</label>
         <input 
