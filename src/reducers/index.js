@@ -12,9 +12,9 @@ function reducer(state = initialState, action) {
     }
 }
 
-function tituloReducer(state = 0, action){
+function tituloReducer(state = {titulo: "Fruta"}, action){
     if(action.type === "ALTERAR"){
-        return state + 1;
+        return { titulo: action.value }
     }else{
         return state
     }
