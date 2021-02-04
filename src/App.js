@@ -1,9 +1,10 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Form, FormGroup, Jumbotron, Input, Button, ListGroup, ListGroupItem } from 'reactstrap'
-import Menu from './components/menu'
+
 import fundo from './img/maquete-de-conceito-de-fruta-deliciosa.jpg'
 import "./index.css"
+
 function App(){
   const [inputFrutas, setInputFrutas] = React.useState("")
   const [inputTitulo, setInputTitulo] = React.useState("")
